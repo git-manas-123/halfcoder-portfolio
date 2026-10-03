@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block head %}<script type="application/ld+json">{{ {"@context":"https://schema.org","@type":"Person","name":"Manas Ranjan Sahu","jobTitle":"Linux System Administrator","url":request.url_root,"image":url_for('static',filename='profile.jpg',_external=True),"worksFor":{"@type":"Organization","name":"Tripstar"},"alumniOf":"RIT Berhampur","knowsAbout":["Linux","AWS","Docker","Kubernetes","Terraform","Nginx","DevOps"],"sameAs":["https://www.linkedin.com/in/manas-ranjan-sahu-525145294/","https://github.com/git-manas-123"]}|tojson }}</script><script type="application/ld+json">{{ {"@context":"https://schema.org","@type":"WebSite","name":"HalfCoder","alternateName":["Manas Ranjan Sahu","HalfCoder DevOps Portfolio"],"url":request.url_root}|tojson }}</script>{% endblock %}
+{% block main %}
+<section class="hero wrap">
+  <div class="hcopy">
+    <p class="kicker">HalfCoder | DevOps portfolio of Manas Ranjan Sahu</p>
+    <h1>I keep your servers up and your deploys boring.</h1>
+    <p class="lead">Linux, AWS, Docker and Kubernetes. Right now I run a production Ubuntu server that hosts many domains, and I'm planning its move to a multi-server setup.</p>
+    <p class="cta"><a class="btn" href="{{ url_for('work') }}">See my work</a> <a class="btn ghost" href="{{ url_for('resume') }}">Resume</a> <a class="btn ghost" href="{{ url_for('contact') }}">Get in touch</a></p>
+  </div>
+  <div class="float">
+    <div class="tilt panel"><img src="{{ url_for('static', filename='profile.jpg') }}" width="320" height="320" alt="Portrait of Manas Ranjan Sahu at his laptop">
+      <div class="cap"><strong>Manas Ranjan Sahu</strong><span>System Administrator, Tripstar</span></div></div>
+    <span class="chip c1">RHCSA certified</span><span class="chip c2">Ubuntu, Nginx, AWS</span>
+  </div>
+</section>
+<section class="wrap sec">
+  <p class="tcap">Try my terminal. Type <b>help</b>, or be brave and try <b>sudo</b>.</p>
+  <div class="term panel" id="term"><div class="tbar"><i></i><i></i><i></i><span>manas@halfcoder: ~</span></div>
+    <div class="tout" id="tout" aria-live="polite"></div>
+    <label class="tin"><span>$</span><input id="tin" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command" placeholder="type help"></label></div>
+</section>
+<section class="wrap sec"><div class="menu">
+<a class="tile" href="{{ url_for('about') }}"><span><strong>About me</strong><small>Who I am and how I got into servers.</small></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="tile" href="{{ url_for('work') }}"><span><strong>Work</strong><small>A CI/CD pipeline on AWS and a multi-domain hosting server.</small></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="tile" href="{{ url_for('experience') }}"><span><strong>Experience</strong><small>Tripstar and Prodevans, with the numbers.</small></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="tile" href="{{ url_for('skills') }}"><span><strong>Skills</strong><small>Linux, cloud, containers, automation and monitoring.</small></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="tile" href="{{ url_for('resume') }}"><span><strong>Resume</strong><small>View it here or download the latest PDF.</small></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="tile" href="{{ url_for('vlogs') }}"><span><strong>Vlogs</strong><small>Notes from the server room.</small></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="tile" href="{{ url_for('contact') }}"><span><strong>Contact</strong><small>Phone, email and where to find me.</small></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+</div></section>
+{% endblock %}

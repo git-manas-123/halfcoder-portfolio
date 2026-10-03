@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% block title %}Admin{% endblock %}
+{% block main %}<section class="wrap sec page"><h1 class="h2">Admin</h1>
+{% if msg %}<p class="ok">{{ msg }}</p>{% endif %}
+<div class="grid">
+<article class="card"><h3>Resume</h3>
+<p>Now showing: {{ src }}{% if updated %}, updated {{ updated }}{% endif %}.</p>
+<form method="post" action="{{ url_for('resume_upload') }}" enctype="multipart/form-data" class="form"><input type="hidden" name="csrf" value="{{ csrf }}">
+<label>Upload a new PDF (replaces the current one)<input type="file" name="resume" accept="application/pdf,.pdf" required></label>
+<button class="btn">Replace resume</button></form>
+{% if drive %}<form method="post" action="{{ url_for('resume_use_drive' if manual else 'resume_sync_now') }}"><input type="hidden" name="csrf" value="{{ csrf }}">
+<button class="btn ghost">{{ 'Go back to Google Drive sync' if manual else 'Sync from Google Drive now' }}</button></form>{% endif %}
+<p><a href="{{ url_for('resume') }}">View the public resume page</a></p></article>
+<article class="card"><h3>Vlogs</h3><p>Write a new one, or edit, hide or delete the ones below.</p>
+<a class="btn" href="{{ url_for('edit') }}">Write a new vlog</a></article>
+</div>
+<h2 class="h2" style="margin-top:48px">Your vlogs</h2>
+{% for v in rows %}<div class="row adm"><strong>{{ v.title }}</strong><span>{{ 'Published' if v.published else 'Draft' }}, updated {{ v.updated }}</span>
+<span class="cta" style="margin:0"><a class="btn ghost" href="{{ url_for('edit', vid=v.id) }}">Edit</a>
+<form method="post" action="{{ url_for('delete', vid=v.id) }}" onsubmit="return confirm('Delete this vlog?')"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="btn ghost">Delete</button></form></span></div>
+{% else %}<p class="note">No vlogs yet.</p>{% endfor %}
+<form method="post" action="{{ url_for('logout') }}" style="margin-top:32px"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="btn ghost">Sign out</button></form></section>{% endblock %}

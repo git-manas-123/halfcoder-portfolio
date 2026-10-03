@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Projects | Manas Ranjan Sahu, DevOps & Linux Hosting{% endblock %}{% block desc %}A CI/CD pipeline on AWS with Docker, GitHub Actions, Prometheus and Grafana, plus a multi-domain Ubuntu and Nginx hosting server.{% endblock %}
+{% block main %}<section class="wrap sec page">
+<header class="ph"><h1>Work</h1><p>Pipelines and servers I built and still run.</p></header>
+<article class="panel proj"><h3>CI/CD pipeline on AWS</h3>
+<p>Every push to GitHub builds a Docker image and ships it to EC2. Redis caching cut backend load, and Prometheus and Grafana watch it. Manual release effort dropped by about 40% with 99.9% uptime.</p>
+<ol class="steps"><li>Push</li><li>Build</li><li>Image</li><li>Deploy</li><li>Monitor</li></ol></article>
+<article class="panel proj"><h3>One server, many domains</h3>
+<p>Ubuntu 22.04 with Nginx and aaPanel serving several sites: DNS, SSL renewals, domain mapping, deployments and troubleshooting, plus the plan to scale beyond a single machine.</p>
+<ol class="steps"><li>DNS</li><li>Nginx</li><li>SSL</li><li>Deploy</li><li>Watch</li></ol></article>
+</section>{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Resume | Manas Ranjan Sahu, Linux System Administrator{% endblock %}{% block desc %}View or download the latest resume of Manas Ranjan Sahu, an RHCSA-certified Linux and cloud system administrator.{% endblock %}
+{% block main %}<section class="wrap sec page">
+<header class="ph"><h1>Resume</h1><p>The full story in one place, always the latest version.</p></header>
+{% if ok %}
+<p class="cta"><a class="btn" href="{{ url_for('resume_download') }}" download>Download PDF</a>
+<a class="btn ghost" href="{{ url_for('resume_file') }}" target="_blank" rel="noopener">Open in new tab</a></p>
+{% if updated %}<p class="note">Last updated {{ updated }}</p>{% endif %}
+<object class="pdf" data="{{ url_for('resume_file') }}#view=FitH" type="application/pdf" aria-label="Resume PDF"><p class="note">Your browser can't show the PDF here. Use the buttons above.</p></object>
+{% else %}<p class="note">My resume will be available here soon.</p>{% endif %}
+</section>{% endblock %}

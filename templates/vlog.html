@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}{{ v.title }} | Manas Ranjan Sahu{% endblock %}{% block desc %}{{ v.summary or v.body[:150] }}{% endblock %}{% block ogtype %}article{% endblock %}
+{% block head %}<script type="application/ld+json">{{ {"@context":"https://schema.org","@type":"BlogPosting","headline":v.title,"description":v.summary,"datePublished":v.created[:10],"dateModified":v.updated[:10],"author":{"@type":"Person","name":"Manas Ranjan Sahu"},"mainEntityOfPage":request.url}|tojson }}</script>{% endblock %}
+{% block main %}<article class="wrap sec page prose"><time>{{ v.created[:10] }}</time><h1 class="h2">{{ v.title }}</h1>
+{% if admin %}<p><a class="btn ghost" href="{{ url_for('edit', vid=v.id) }}">Edit this vlog</a></p>{% endif %}
+{{ v.body|md }}</article>{% endblock %}

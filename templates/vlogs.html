@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Vlogs | Linux, DevOps and Server Notes{% endblock %}{% block desc %}Practical notes on Linux servers, Nginx, SSL, AWS and DevOps from a working system administrator.{% endblock %}
+{% block main %}<section class="wrap sec page">
+<header class="ph"><h1>Vlogs</h1><p>Notes from the server room.</p></header>
+<div class="grid">{% for v in rows %}<a class="card vc" href="{{ url_for('vlog', slug=v.slug) }}"><time>{{ v.created[:10] }}</time><h3>{{ v.title }}</h3><p>{{ v.summary }}</p><span class="more">Read vlog</span></a>
+{% else %}<p class="note">Nothing published yet.</p>{% endfor %}</div>
+</section>{% endblock %}
